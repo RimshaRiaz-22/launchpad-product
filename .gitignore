@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Uploads (local dev)
+uploads/*
+!uploads/.gitkeep
+
+# Coverage
+coverage/
+
+# Build
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# PM2
+.pm2/
+
+#test
+tests/
+# Knex
+# (migrations are committed, not ignored)
+
+# Firebase Service Account Credentials (CRITICAL: NEVER COMMIT)
+firebase-service-account.json
+*firebase-adminsdk*.json
+*service-account*.json

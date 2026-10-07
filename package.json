@@ -1,0 +1,57 @@
+{
+  "name": "launchpad-backend",
+  "version": "1.0.0",
+  "description": "Enterprise-grade backend API for Launchpad SaaS — design editor platform",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "db:sync": "node -e \"require('./src/database/autoSync').autoSyncDatabase().then(() => process.exit(0)).catch(() => process.exit(1))\"",
+    "migrate": "knex migrate:latest --knexfile knexfile.js",
+    "migrate:rollback": "knex migrate:rollback --knexfile knexfile.js",
+    "migrate:make": "knex migrate:make --knexfile knexfile.js",
+    "seed": "knex seed:run --knexfile knexfile.js",
+    "test": "jest --runInBand --detectOpenHandles",
+    "test:watch": "jest --watch --runInBand",
+    "test:coverage": "jest --coverage --runInBand",
+    "lint": "eslint src/**/*.js --fix",
+    "pm2:start": "pm2 start ecosystem.config.js --env production",
+    "pm2:stop": "pm2 stop launchpad-backend",
+    "pm2:logs": "pm2 logs launchpad-backend"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.11.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "express-slow-down": "^2.0.3",
+    "firebase-admin": "^14.4.0",
+    "helmet": "^7.1.0",
+    "hpp": "^0.2.3",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^10.0.3",
+    "pg": "^8.12.0",
+    "stripe": "^22.6.2",
+    "uuid": "^10.0.0",
+    "winston": "^3.14.2",
+    "winston-daily-rotate-file": "^5.0.0",
+    "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0"
+  }
+}
